@@ -13,13 +13,13 @@ import java.util.concurrent.TimeUnit;
  * To change this template use File | Settings | File Templates.
  */
 public class ThreadPool {
-    public static ThreadPoolExecutor threadPoolExecutor =(ThreadPoolExecutor) Executors.newFixedThreadPool(10);
+    public static ThreadPoolExecutor threadPoolExecutor =(ThreadPoolExecutor) Executors.newFixedThreadPool(6);
 
     public static void main(String[] args) {
         Task task = new Task();
         for(int i = 0 ;i < 10 ;i++){
             threadPoolExecutor.execute(task);
-            System.out.println("线程池中线程数目："+threadPoolExecutor.getPoolSize()+"，队列中等待执行的任务数目："+ threadPoolExecutor.getQueue().size()+"，已执行玩别的任务数目："+threadPoolExecutor.getCompletedTaskCount());
+            System.out.println("线程池中线程数目："+threadPoolExecutor.getPoolSize()+"，队列中等待执行的任务数目："+ threadPoolExecutor.getQueue().size()+"，已执行完别的任务数目："+threadPoolExecutor.getCompletedTaskCount());
         }
     }
 }
